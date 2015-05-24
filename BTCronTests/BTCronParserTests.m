@@ -53,4 +53,38 @@
                           [self bt_dateFromIsoString:@"2001-05-30 00:00"]);
 }
 
+- (void)testYearly
+{
+    self.parser.baseDate = [self bt_dateFromIsoString:@"2001-05-29 12:36"];
+    
+    XCTAssertEqualObjects([self.parser nextDateForLine:@"@yearly /bin/bash"],
+                          [self bt_dateFromIsoString:@"2002-01-01 00:00"]);
+}
+
+- (void)testMonthly
+{
+    self.parser.baseDate = [self bt_dateFromIsoString:@"2001-05-29 12:36"];
+    
+    XCTAssertEqualObjects([self.parser nextDateForLine:@"@monthly /bin/bash"],
+                          [self bt_dateFromIsoString:@"2001-06-01 00:00"]);
+}
+
+- (void)testWeekly
+{
+    // Tuesday, May 29, 2001
+    // Weekly runs on Sunday morning => June 3
+    self.parser.baseDate = [self bt_dateFromIsoString:@"2001-05-29 12:36"];
+    
+    XCTAssertEqualObjects([self.parser nextDateForLine:@"@weekly /bin/bash"],
+                          [self bt_dateFromIsoString:@"2001-06-03 00:00"]);
+}
+
+- (void)testHourly
+{
+    self.parser.baseDate = [self bt_dateFromIsoString:@"2001-05-29 12:36"];
+    
+    XCTAssertEqualObjects([self.parser nextDateForLine:@"@hourly /bin/bash"],
+                          [self bt_dateFromIsoString:@"2001-05-29 13:00"]);
+}
+
 @end
