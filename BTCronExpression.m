@@ -20,7 +20,7 @@
     self = [super init];
     if(self)
     {
-        _line = line;
+        _line = [[self class] scheduleByReplacingPredefinedScheduleInString:line];
     }
 
     return self;
@@ -94,6 +94,23 @@
             *stop = YES;
     }];
 
+    return result;
+}
+
+#pragma mark - Class Methods
+
++ (NSString *)scheduleByReplacingPredefinedScheduleInString:(NSString *)schedule
+{
+    id map = @{
+        @"@daily" : @"0 0 * * *"
+    };
+    
+    NSString *result = schedule;
+    for(NSString *predefined in [map allKeys])
+    {
+        result = [result stringByReplacingOccurrencesOfString:predefined withString:map[predefined]];
+    }
+    
     return result;
 }
 
