@@ -30,37 +30,60 @@
 {
     BTCronComponent *component = [[BTCronComponent alloc] init];
     NSScanner *scanner = [[NSScanner alloc] initWithString:self.line];
-
-    NSNumber *minute = [component nextValueWithScanner:scanner];
-    NSNumber *hour = [component nextValueWithScanner:scanner];
-    NSNumber *dayOfMonth = [component nextValueWithScanner:scanner];
-    NSNumber *month = [component nextValueWithScanner:scanner];
-//    NSNumber *dayOfWeek = [component nextValueWithScanner:scanner];
-    
-    __block NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
-    dateComponents.minute = [minute integerValue];
-    dateComponents.hour = [hour integerValue];
-    dateComponents.day = [dayOfMonth integerValue];
-    dateComponents.month = [month integerValue];
-//    dateComponents.weekday = [dayOfWeek integerValue];
-
-    __weak typeof(self) weakSelf = self;
-    __block NSCalendar *calendar = [NSCalendar calendarWithIdentifier:NSCalendarIdentifierGregorian];
+    NSCalendar *calendar = [NSCalendar calendarWithIdentifier:NSCalendarIdentifierGregorian];
     calendar.timeZone = self.timezone;
+
+    __block NSNumber *minute = [component nextValueWithScanner:scanner];
+    __block NSNumber *hour = [component nextValueWithScanner:scanner];
+    __block NSNumber *dayOfMonth = [component nextValueWithScanner:scanner];
+    __block NSNumber *month = [component nextValueWithScanner:scanner];
+    __block NSNumber *dayOfWeek = [component nextValueWithScanner:scanner];
+    __block NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
     
+    // if none of the components are specified (* * * * *), then use the next
+    // minute as the minute component
+    if(!minute &&
+       !hour &&
+       !dayOfMonth &&
+       !month)
+    {
+        NSDate *futureDate = [self.baseDate dateByAddingTimeInterval:60];
+        NSDateComponents *nextMinute = [calendar components:NSCalendarUnitMinute fromDate:futureDate];
+        minute = @([nextMinute minute]);
+    }
+    
+    if(minute)
+        dateComponents.minute = [minute integerValue];
+    
+    if(hour)
+        dateComponents.hour = [hour integerValue];
+    
+    if(dayOfMonth)
+        dateComponents.day = [dayOfMonth integerValue];
+    
+    if(month)
+        dateComponents.month = [month integerValue];
+    
+    if(dayOfWeek)
+    {
+        // Sunday = 0 in cron, but
+        // Sunday = 1 in the NSCalendarComponents Gregorian calendar 
+        dateComponents.weekday = [dayOfWeek integerValue] + 1;
+    }
+
     __block NSInteger count = 0;
     __block NSDate *result = nil;
+    __weak typeof(self) weakSelf = self;
     
     // using nextDateAfterDate:matchingComponents:options: would be really great,
     // except that it returns March 1 when asking for February 29 on a non-leap year.
     [calendar enumerateDatesStartingAfterDate:self.baseDate matchingComponents:dateComponents options:NSCalendarMatchNextTime usingBlock:^(NSDate *date, BOOL exactMatch, BOOL *stop) {
-        NSLog(@"date: %@", date);
-        
+
         NSDateComponents *resultComponents = [calendar componentsInTimeZone:weakSelf.timezone fromDate:date];
-        if(resultComponents.minute == dateComponents.minute &&
-            resultComponents.hour == dateComponents.hour &&
-            resultComponents.day == dateComponents.day &&
-            resultComponents.month == dateComponents.month)
+        if( (!minute     || (resultComponents.minute == dateComponents.minute)) &&
+            (!hour       || (resultComponents.hour == dateComponents.hour)) &&
+            (!dayOfMonth || (resultComponents.day == dateComponents.day)) &&
+            (!month      || (resultComponents.month == dateComponents.month)))
         {
             result = date;
             *stop = YES;

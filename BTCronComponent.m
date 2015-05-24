@@ -18,7 +18,6 @@
     [scanner scanUpToCharactersFromSet:[NSCharacterSet whitespaceCharacterSet] intoString:&value];
     
     NSNumber *final = [formatter numberFromString:value];
-    NSLog(@"final=%@", final);
     return final;
 }
 
