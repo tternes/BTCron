@@ -11,7 +11,12 @@
 		DF74A49F1AFEB87D0042F87C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DF74A49E1AFEB87D0042F87C /* main.m */; };
 		DF74A4A11AFEB87D0042F87C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF74A4A01AFEB87D0042F87C /* Images.xcassets */; };
 		DF74A4A41AFEB87D0042F87C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF74A4A21AFEB87D0042F87C /* MainMenu.xib */; };
-		DF74A4B01AFEB87D0042F87C /* BTCronTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DF74A4AF1AFEB87D0042F87C /* BTCronTests.m */; };
+		DF74A4BC1AFEB9210042F87C /* BTCronParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DF74A4BB1AFEB9210042F87C /* BTCronParser.m */; };
+		DF74A4C11AFEEE0A0042F87C /* BTCronBasicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DF74A4C01AFEEE0A0042F87C /* BTCronBasicTests.m */; };
+		DF7C77471B1166CF0067FB96 /* BTCronComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = DF7C77401B10E77B0067FB96 /* BTCronComponent.m */; };
+		DF7C77481B116B4D0067FB96 /* BTCronTimeComponentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DF74A4C81AFF01A70042F87C /* BTCronTimeComponentTests.m */; };
+		DF7C774B1B116CE30067FB96 /* BTCronExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = DF7C774A1B116CE30067FB96 /* BTCronExpression.m */; };
+		DF7C774D1B1171FB0067FB96 /* BTCronExpressionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DF7C774C1B1171FB0067FB96 /* BTCronExpressionTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,7 +39,15 @@
 		DF74A4A31AFEB87D0042F87C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		DF74A4A91AFEB87D0042F87C /* BTCronTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BTCronTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF74A4AE1AFEB87D0042F87C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DF74A4AF1AFEB87D0042F87C /* BTCronTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTCronTests.m; sourceTree = "<group>"; };
+		DF74A4BA1AFEB9210042F87C /* BTCronParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTCronParser.h; sourceTree = "<group>"; };
+		DF74A4BB1AFEB9210042F87C /* BTCronParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTCronParser.m; sourceTree = "<group>"; };
+		DF74A4C01AFEEE0A0042F87C /* BTCronBasicTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTCronBasicTests.m; sourceTree = "<group>"; };
+		DF74A4C81AFF01A70042F87C /* BTCronTimeComponentTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTCronTimeComponentTests.m; sourceTree = "<group>"; };
+		DF7C773F1B10E77B0067FB96 /* BTCronComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTCronComponent.h; sourceTree = "<group>"; };
+		DF7C77401B10E77B0067FB96 /* BTCronComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTCronComponent.m; sourceTree = "<group>"; };
+		DF7C77491B116CE30067FB96 /* BTCronExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTCronExpression.h; sourceTree = "<group>"; };
+		DF7C774A1B116CE30067FB96 /* BTCronExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTCronExpression.m; sourceTree = "<group>"; };
+		DF7C774C1B1171FB0067FB96 /* BTCronExpressionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTCronExpressionTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +71,8 @@
 		DF74A48D1AFEB87D0042F87C = {
 			isa = PBXGroup;
 			children = (
-				DF74A4981AFEB87D0042F87C /* BTCron */,
+				DF74A4B91AFEB8DF0042F87C /* BTCron */,
+				DF74A4981AFEB87D0042F87C /* BTCronDemo */,
 				DF74A4AC1AFEB87D0042F87C /* BTCronTests */,
 				DF74A4971AFEB87D0042F87C /* Products */,
 			);
@@ -73,7 +87,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DF74A4981AFEB87D0042F87C /* BTCron */ = {
+		DF74A4981AFEB87D0042F87C /* BTCronDemo */ = {
 			isa = PBXGroup;
 			children = (
 				DF74A49B1AFEB87D0042F87C /* AppDelegate.h */,
@@ -82,6 +96,7 @@
 				DF74A4A21AFEB87D0042F87C /* MainMenu.xib */,
 				DF74A4991AFEB87D0042F87C /* Supporting Files */,
 			);
+			name = BTCronDemo;
 			path = BTCron;
 			sourceTree = "<group>";
 		};
@@ -97,7 +112,9 @@
 		DF74A4AC1AFEB87D0042F87C /* BTCronTests */ = {
 			isa = PBXGroup;
 			children = (
-				DF74A4AF1AFEB87D0042F87C /* BTCronTests.m */,
+				DF74A4C01AFEEE0A0042F87C /* BTCronBasicTests.m */,
+				DF7C774C1B1171FB0067FB96 /* BTCronExpressionTests.m */,
+				DF74A4C81AFF01A70042F87C /* BTCronTimeComponentTests.m */,
 				DF74A4AD1AFEB87D0042F87C /* Supporting Files */,
 			);
 			path = BTCronTests;
@@ -109,6 +126,35 @@
 				DF74A4AE1AFEB87D0042F87C /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DF74A4B91AFEB8DF0042F87C /* BTCron */ = {
+			isa = PBXGroup;
+			children = (
+				DF74A4BA1AFEB9210042F87C /* BTCronParser.h */,
+				DF74A4BB1AFEB9210042F87C /* BTCronParser.m */,
+				DF7C77421B10EC910067FB96 /* Expressions */,
+				DF7C773E1B10E7390067FB96 /* Scanner */,
+			);
+			name = BTCron;
+			sourceTree = "<group>";
+		};
+		DF7C773E1B10E7390067FB96 /* Scanner */ = {
+			isa = PBXGroup;
+			children = (
+				DF7C773F1B10E77B0067FB96 /* BTCronComponent.h */,
+				DF7C77401B10E77B0067FB96 /* BTCronComponent.m */,
+				DF7C77491B116CE30067FB96 /* BTCronExpression.h */,
+				DF7C774A1B116CE30067FB96 /* BTCronExpression.m */,
+			);
+			name = Scanner;
+			sourceTree = "<group>";
+		};
+		DF7C77421B10EC910067FB96 /* Expressions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Expressions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,7 +257,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF74A49F1AFEB87D0042F87C /* main.m in Sources */,
+				DF74A4BC1AFEB9210042F87C /* BTCronParser.m in Sources */,
+				DF7C774B1B116CE30067FB96 /* BTCronExpression.m in Sources */,
 				DF74A49D1AFEB87D0042F87C /* AppDelegate.m in Sources */,
+				DF7C77471B1166CF0067FB96 /* BTCronComponent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,7 +268,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF74A4B01AFEB87D0042F87C /* BTCronTests.m in Sources */,
+				DF7C77481B116B4D0067FB96 /* BTCronTimeComponentTests.m in Sources */,
+				DF7C774D1B1171FB0067FB96 /* BTCronExpressionTests.m in Sources */,
+				DF74A4C11AFEEE0A0042F87C /* BTCronBasicTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,6 +452,7 @@
 				DF74A4B51AFEB87D0042F87C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DF74A4B61AFEB87D0042F87C /* Build configuration list for PBXNativeTarget "BTCronTests" */ = {
 			isa = XCConfigurationList;
@@ -409,6 +461,7 @@
 				DF74A4B81AFEB87D0042F87C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
