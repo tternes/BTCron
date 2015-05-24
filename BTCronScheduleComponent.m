@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 Bluetoo Ventures. All rights reserved.
 //
 
-#import "BTCronComponent.h"
+#import "BTCronScheduleComponent.h"
 
-@implementation BTCronComponent
+@implementation BTCronScheduleComponent
 
 - (NSNumber *)nextValueWithScanner:(NSScanner *)scanner
 {

@@ -8,12 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@interface BTCronExpression : NSObject
+@interface BTCronSchedule : NSObject
 
 @property (nonatomic, strong) NSDate *baseDate;
 @property (nonatomic, strong) NSTimeZone *timezone;
 
-- (instancetype)initWithCronLine:(NSString *)line;
+- (instancetype)initWithSchedule:(NSString *)schedule;
 - (NSDate *)nextDate;
 
 @end

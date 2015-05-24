@@ -7,7 +7,7 @@
 //
 
 #import "BTCronParser.h"
-#import "BTCronExpression.h"
+#import "BTCronSchedule.h"
 
 @implementation BTCronParser
 
@@ -51,7 +51,7 @@
 
 - (NSDate *)nextDateForLine:(NSString *)line
 {
-    BTCronExpression *expression = [[BTCronExpression alloc] initWithCronLine:line];
+    BTCronSchedule *expression = [[BTCronSchedule alloc] initWithSchedule:line];
     expression.baseDate = self.baseDate;
     expression.timezone = self.timezone;
 

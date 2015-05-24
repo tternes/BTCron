@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import <XCTest/XCTest.h>
-#import "BTCronComponent.h"
+#import "BTCronScheduleComponent.h"
 
 @interface BTCronTimeComponentTests : XCTestCase
-@property (nonatomic, strong) BTCronComponent *component;
+@property (nonatomic, strong) BTCronScheduleComponent *component;
 @end
 
 @implementation BTCronTimeComponentTests
@@ -19,7 +19,7 @@
 - (void)setUp
 {
     [super setUp];
-    self.component = [[BTCronComponent alloc] init];
+    self.component = [[BTCronScheduleComponent alloc] init];
 }
 
 - (void)tearDown

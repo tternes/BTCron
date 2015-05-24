@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import <XCTest/XCTest.h>
-#import "BTCronExpression.h"
+#import "BTCronSchedule.h"
 #import "XCTestCase+CronTestBaseDates.h"
 
 @interface BTCronExpressionTests : XCTestCase
@@ -18,14 +18,14 @@
 
 - (void)testFirstDayOfJune
 {
-    BTCronExpression *expression = [self expressionForString:@"0 0 1 6 *"];
+    BTCronSchedule *expression = [self expressionForString:@"0 0 1 6 *"];
     XCTAssertEqualObjects([expression nextDate],
                           [self bt_dateFromIsoString:@"1970-06-01 00:00"]);
 }
 
 - (void)testFirstDayOfFebruary
 {
-    BTCronExpression *expression = [self expressionForString:@"0 0 1 2 *"];
+    BTCronSchedule *expression = [self expressionForString:@"0 0 1 2 *"];
     XCTAssertEqualObjects([expression nextDate],
                           [self bt_dateFromIsoString:@"1970-02-01 00:00"]);
 }
@@ -33,14 +33,14 @@
 - (void)testFirstDayOfJanuary
 {
     // Next first-of-year is in 1971..
-    BTCronExpression *expression = [self expressionForString:@"0 0 1 1 *"];
+    BTCronSchedule *expression = [self expressionForString:@"0 0 1 1 *"];
     XCTAssertEqualObjects([expression nextDate],
                           [self bt_dateFromIsoString:@"1971-01-01 00:00"]);
 }
 
 - (void)testFebruaryTwentyEight
 {
-    BTCronExpression *expression = [self expressionForString:@"0 0 28 2 *"];
+    BTCronSchedule *expression = [self expressionForString:@"0 0 28 2 *"];
     XCTAssertEqualObjects([expression nextDate],
                           [self bt_dateFromIsoString:@"1970-02-28 00:00"]);
 }
@@ -48,28 +48,28 @@
 - (void)testFebruaryTwentyNine
 {
     // The next February 29 after 1970 was in 1972
-    BTCronExpression *expression = [self expressionForString:@"0 0 29 2 *"];
+    BTCronSchedule *expression = [self expressionForString:@"0 0 29 2 *"];
     XCTAssertEqualObjects([expression nextDate],
                           [self bt_dateFromIsoString:@"1972-02-29 00:00"]);
 }
 
 - (void)testNoon
 {
-    BTCronExpression *expression = [self expressionForString:@"0 12 1 2 *"];
+    BTCronSchedule *expression = [self expressionForString:@"0 12 1 2 *"];
     XCTAssertEqualObjects([expression nextDate],
                           [self bt_dateFromIsoString:@"1970-02-01 12:00"]);
 }
 
 - (void)testOnePM
 {
-    BTCronExpression *expression = [self expressionForString:@"0 13 1 2 *"];
+    BTCronSchedule *expression = [self expressionForString:@"0 13 1 2 *"];
     XCTAssertEqualObjects([expression nextDate],
                           [self bt_dateFromIsoString:@"1970-02-01 13:00"]);
 }
 
 - (void)testOneFortyFivePM
 {
-    BTCronExpression *expression = [self expressionForString:@"45 13 1 2 *"];
+    BTCronSchedule *expression = [self expressionForString:@"45 13 1 2 *"];
     XCTAssertEqualObjects([expression nextDate],
                           [self bt_dateFromIsoString:@"1970-02-01 13:45"]);
 }
@@ -78,7 +78,7 @@
 {
     // Jan 1, 1970 was a Thursday
     // The next Sunday was Jan 4
-    BTCronExpression *expression = [self expressionForString:@"0 0 * * 0"];
+    BTCronSchedule *expression = [self expressionForString:@"0 0 * * 0"];
     XCTAssertEqualObjects([expression nextDate],
                           [self bt_dateFromIsoString:@"1970-01-04 00:00"]);
 }
@@ -87,7 +87,7 @@
 {
     // Jan 1, 1970 was a Thursday
     // The next Wednesday was Jan 7
-    BTCronExpression *expression = [self expressionForString:@"0 5 * * 3"];
+    BTCronSchedule *expression = [self expressionForString:@"0 5 * * 3"];
     XCTAssertEqualObjects([expression nextDate],
                           [self bt_dateFromIsoString:@"1970-01-07 05:00"]);
 }
@@ -97,7 +97,7 @@
     // Sunday, February 1, 1970
     // Friday = 5 in cron
     // Friday was February 6, 1970
-    BTCronExpression *expression = [self expressionForString:@"0 0 * * 5"];
+    BTCronSchedule *expression = [self expressionForString:@"0 0 * * 5"];
     expression.baseDate = [self bt_dateFromIsoString:@"1970-02-01 00:00"];
     XCTAssertEqualObjects([expression nextDate],
                           [self bt_dateFromIsoString:@"1970-02-06 00:00"]);
@@ -107,7 +107,7 @@
 {
     // Thursday, March 1, 1990
     // Friday = 5 in cron
-    BTCronExpression *expression = [self expressionForString:@"0 0 * * 5"];
+    BTCronSchedule *expression = [self expressionForString:@"0 0 * * 5"];
     expression.baseDate = [self bt_dateFromIsoString:@"1990-03-01 00:00"];
     
     // first
@@ -143,7 +143,7 @@
 - (void)testEveryHour
 {
     // Start on July 4, 1776
-    BTCronExpression *expression = [self expressionForString:@"0 * * * *"];
+    BTCronSchedule *expression = [self expressionForString:@"0 * * * *"];
     expression.baseDate = [self bt_dateFromIsoString:@"1776-06-04 00:00"];
     
     XCTAssertEqualObjects([expression nextDate], [self bt_dateFromIsoString:@"1776-06-04 01:00"]);
@@ -221,7 +221,7 @@
 - (void)testEveryMinute
 {
     // Start September 1, 1988
-    BTCronExpression *expression = [self expressionForString:@"* * * * *"];
+    BTCronSchedule *expression = [self expressionForString:@"* * * * *"];
     expression.baseDate = [self bt_dateFromIsoString:@"1988-09-01 08:00"];
     
     for(NSInteger minute = 1; minute < 60; minute++)
@@ -237,9 +237,9 @@
 
 #pragma mark - Helpers
 
-- (BTCronExpression *)expressionForString:(NSString *)string
+- (BTCronSchedule *)expressionForString:(NSString *)string
 {
-    BTCronExpression *expression = [[BTCronExpression alloc] initWithCronLine:string];
+    BTCronSchedule *expression = [[BTCronSchedule alloc] initWithSchedule:string];
     expression.baseDate = [self bt_baseDateForTests];
     expression.timezone = [self bt_timezone];
     return expression;

@@ -6,21 +6,21 @@
 //  Copyright (c) 2015 Bluetoo Ventures. All rights reserved.
 //
 
-#import "BTCronExpression.h"
-#import "BTCronComponent.h"
+#import "BTCronSchedule.h"
+#import "BTCronScheduleComponent.h"
 
-@interface BTCronExpression ()
+@interface BTCronSchedule ()
 @property (nonatomic, copy) NSString *line;
 @end
 
-@implementation BTCronExpression
+@implementation BTCronSchedule
 
-- (instancetype)initWithCronLine:(NSString *)line
+- (instancetype)initWithSchedule:(NSString *)schedule
 {
     self = [super init];
     if(self)
     {
-        _line = [[self class] scheduleByReplacingPredefinedScheduleInString:line];
+        _line = [[self class] scheduleByReplacingPredefinedScheduleInString:schedule];
     }
 
     return self;
@@ -28,7 +28,7 @@
 
 - (NSDate *)nextDate
 {
-    BTCronComponent *component = [[BTCronComponent alloc] init];
+    BTCronScheduleComponent *component = [[BTCronScheduleComponent alloc] init];
     NSScanner *scanner = [[NSScanner alloc] initWithString:self.line];
     NSCalendar *calendar = [NSCalendar calendarWithIdentifier:NSCalendarIdentifierGregorian];
     calendar.timeZone = self.timezone;

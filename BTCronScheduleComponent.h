@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface BTCronComponent : NSObject
+@interface BTCronScheduleComponent : NSObject
 
 - (NSNumber *)nextValueWithScanner:(NSScanner *)scanner;
 

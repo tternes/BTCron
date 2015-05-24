@@ -12,9 +12,9 @@
 		DF74A4A11AFEB87D0042F87C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF74A4A01AFEB87D0042F87C /* Images.xcassets */; };
 		DF74A4A41AFEB87D0042F87C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF74A4A21AFEB87D0042F87C /* MainMenu.xib */; };
 		DF74A4BC1AFEB9210042F87C /* BTCronParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DF74A4BB1AFEB9210042F87C /* BTCronParser.m */; };
-		DF7C77471B1166CF0067FB96 /* BTCronComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = DF7C77401B10E77B0067FB96 /* BTCronComponent.m */; };
+		DF7C77471B1166CF0067FB96 /* BTCronScheduleComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = DF7C77401B10E77B0067FB96 /* BTCronScheduleComponent.m */; };
 		DF7C77481B116B4D0067FB96 /* BTCronTimeComponentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DF74A4C81AFF01A70042F87C /* BTCronTimeComponentTests.m */; };
-		DF7C774B1B116CE30067FB96 /* BTCronExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = DF7C774A1B116CE30067FB96 /* BTCronExpression.m */; };
+		DF7C774B1B116CE30067FB96 /* BTCronSchedule.m in Sources */ = {isa = PBXBuildFile; fileRef = DF7C774A1B116CE30067FB96 /* BTCronSchedule.m */; };
 		DF7C774D1B1171FB0067FB96 /* BTCronExpressionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DF7C774C1B1171FB0067FB96 /* BTCronExpressionTests.m */; };
 		DF7C77501B11848F0067FB96 /* XCTestCase+CronTestBaseDates.m in Sources */ = {isa = PBXBuildFile; fileRef = DF7C774F1B11848F0067FB96 /* XCTestCase+CronTestBaseDates.m */; };
 		DF7C77521B11862D0067FB96 /* BTCronParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DF7C77511B11862D0067FB96 /* BTCronParserTests.m */; };
@@ -43,10 +43,10 @@
 		DF74A4BA1AFEB9210042F87C /* BTCronParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTCronParser.h; sourceTree = "<group>"; };
 		DF74A4BB1AFEB9210042F87C /* BTCronParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTCronParser.m; sourceTree = "<group>"; };
 		DF74A4C81AFF01A70042F87C /* BTCronTimeComponentTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTCronTimeComponentTests.m; sourceTree = "<group>"; };
-		DF7C773F1B10E77B0067FB96 /* BTCronComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTCronComponent.h; sourceTree = "<group>"; };
-		DF7C77401B10E77B0067FB96 /* BTCronComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTCronComponent.m; sourceTree = "<group>"; };
-		DF7C77491B116CE30067FB96 /* BTCronExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTCronExpression.h; sourceTree = "<group>"; };
-		DF7C774A1B116CE30067FB96 /* BTCronExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTCronExpression.m; sourceTree = "<group>"; };
+		DF7C773F1B10E77B0067FB96 /* BTCronScheduleComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTCronScheduleComponent.h; sourceTree = "<group>"; };
+		DF7C77401B10E77B0067FB96 /* BTCronScheduleComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTCronScheduleComponent.m; sourceTree = "<group>"; };
+		DF7C77491B116CE30067FB96 /* BTCronSchedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTCronSchedule.h; sourceTree = "<group>"; };
+		DF7C774A1B116CE30067FB96 /* BTCronSchedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTCronSchedule.m; sourceTree = "<group>"; };
 		DF7C774C1B1171FB0067FB96 /* BTCronExpressionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTCronExpressionTests.m; sourceTree = "<group>"; };
 		DF7C774E1B11848F0067FB96 /* XCTestCase+CronTestBaseDates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCTestCase+CronTestBaseDates.h"; sourceTree = "<group>"; };
 		DF7C774F1B11848F0067FB96 /* XCTestCase+CronTestBaseDates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCTestCase+CronTestBaseDates.m"; sourceTree = "<group>"; };
@@ -138,28 +138,20 @@
 			children = (
 				DF74A4BA1AFEB9210042F87C /* BTCronParser.h */,
 				DF74A4BB1AFEB9210042F87C /* BTCronParser.m */,
-				DF7C77421B10EC910067FB96 /* Expressions */,
-				DF7C773E1B10E7390067FB96 /* Scanner */,
+				DF7C773E1B10E7390067FB96 /* Schedule */,
 			);
 			name = BTCron;
 			sourceTree = "<group>";
 		};
-		DF7C773E1B10E7390067FB96 /* Scanner */ = {
+		DF7C773E1B10E7390067FB96 /* Schedule */ = {
 			isa = PBXGroup;
 			children = (
-				DF7C773F1B10E77B0067FB96 /* BTCronComponent.h */,
-				DF7C77401B10E77B0067FB96 /* BTCronComponent.m */,
-				DF7C77491B116CE30067FB96 /* BTCronExpression.h */,
-				DF7C774A1B116CE30067FB96 /* BTCronExpression.m */,
+				DF7C77491B116CE30067FB96 /* BTCronSchedule.h */,
+				DF7C774A1B116CE30067FB96 /* BTCronSchedule.m */,
+				DF7C773F1B10E77B0067FB96 /* BTCronScheduleComponent.h */,
+				DF7C77401B10E77B0067FB96 /* BTCronScheduleComponent.m */,
 			);
-			name = Scanner;
-			sourceTree = "<group>";
-		};
-		DF7C77421B10EC910067FB96 /* Expressions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Expressions;
+			name = Schedule;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,9 +255,9 @@
 			files = (
 				DF74A49F1AFEB87D0042F87C /* main.m in Sources */,
 				DF74A4BC1AFEB9210042F87C /* BTCronParser.m in Sources */,
-				DF7C774B1B116CE30067FB96 /* BTCronExpression.m in Sources */,
+				DF7C774B1B116CE30067FB96 /* BTCronSchedule.m in Sources */,
 				DF74A49D1AFEB87D0042F87C /* AppDelegate.m in Sources */,
-				DF7C77471B1166CF0067FB96 /* BTCronComponent.m in Sources */,
+				DF7C77471B1166CF0067FB96 /* BTCronScheduleComponent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
