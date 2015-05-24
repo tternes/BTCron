@@ -17,6 +17,7 @@
 		DF7C774B1B116CE30067FB96 /* BTCronExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = DF7C774A1B116CE30067FB96 /* BTCronExpression.m */; };
 		DF7C774D1B1171FB0067FB96 /* BTCronExpressionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DF7C774C1B1171FB0067FB96 /* BTCronExpressionTests.m */; };
 		DF7C77501B11848F0067FB96 /* XCTestCase+CronTestBaseDates.m in Sources */ = {isa = PBXBuildFile; fileRef = DF7C774F1B11848F0067FB96 /* XCTestCase+CronTestBaseDates.m */; };
+		DF7C77521B11862D0067FB96 /* BTCronParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DF7C77511B11862D0067FB96 /* BTCronParserTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		DF7C774C1B1171FB0067FB96 /* BTCronExpressionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTCronExpressionTests.m; sourceTree = "<group>"; };
 		DF7C774E1B11848F0067FB96 /* XCTestCase+CronTestBaseDates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCTestCase+CronTestBaseDates.h"; sourceTree = "<group>"; };
 		DF7C774F1B11848F0067FB96 /* XCTestCase+CronTestBaseDates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCTestCase+CronTestBaseDates.m"; sourceTree = "<group>"; };
+		DF7C77511B11862D0067FB96 /* BTCronParserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTCronParserTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,11 +115,10 @@
 		DF74A4AC1AFEB87D0042F87C /* BTCronTests */ = {
 			isa = PBXGroup;
 			children = (
-				DF74A4AD1AFEB87D0042F87C /* Supporting Files */,
 				DF7C774C1B1171FB0067FB96 /* BTCronExpressionTests.m */,
+				DF7C77511B11862D0067FB96 /* BTCronParserTests.m */,
 				DF74A4C81AFF01A70042F87C /* BTCronTimeComponentTests.m */,
-				DF7C774E1B11848F0067FB96 /* XCTestCase+CronTestBaseDates.h */,
-				DF7C774F1B11848F0067FB96 /* XCTestCase+CronTestBaseDates.m */,
+				DF74A4AD1AFEB87D0042F87C /* Supporting Files */,
 			);
 			path = BTCronTests;
 			sourceTree = "<group>";
@@ -125,6 +126,8 @@
 		DF74A4AD1AFEB87D0042F87C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				DF7C774E1B11848F0067FB96 /* XCTestCase+CronTestBaseDates.h */,
+				DF7C774F1B11848F0067FB96 /* XCTestCase+CronTestBaseDates.m */,
 				DF74A4AE1AFEB87D0042F87C /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -272,6 +275,7 @@
 			files = (
 				DF7C77481B116B4D0067FB96 /* BTCronTimeComponentTests.m in Sources */,
 				DF7C774D1B1171FB0067FB96 /* BTCronExpressionTests.m in Sources */,
+				DF7C77521B11862D0067FB96 /* BTCronParserTests.m in Sources */,
 				DF7C77501B11848F0067FB96 /* XCTestCase+CronTestBaseDates.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

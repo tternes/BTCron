@@ -7,12 +7,7 @@
 //
 
 #import "BTCronParser.h"
-#import "BTCronComponent.h"
-
-@interface BTCronParser ()
-//@property (nonatomic, strong) BTCronMinuteComponent *minuteComponent;
-
-@end
+#import "BTCronExpression.h"
 
 @implementation BTCronParser
 
@@ -54,64 +49,13 @@
  
 */
 
-
-/*
-
-    // API Entry Point
-
-    // Parser determines expression type
-
-    // ---------------------------------------------
-    // Expression Types
-    // ---------------------------------------------
-    // BTCronExpressionScheduled  <BTCronExpression>
- 
- 
-    // BTCronExpressionPredefined <BTCronExpression>
-    //      + (id)predefinedExpression
-    //  BTCronExpressionMonthly
-    //  BTCronExpressionWeekly
-    //  BTCronExpressionDaily
-    //  BTCronExpressionHourly
-    //  BTCronExpressionReboot
- 
-    // ---------------------------------------------
-    // <BTCronExpression>
-    // ---------------------------------------------
-    //  - (NSDate *)nextExpressionDate
- 
-*/
 - (NSDate *)nextDateForLine:(NSString *)line
 {
-//    NSDateComponents *components = [[NSDateComponents alloc] init];
-//    
-//    NSScanner *scanner = [[NSScanner alloc] initWithString:line];
-//    scanner.charactersToBeSkipped = [NSCharacterSet whitespaceCharacterSet];
-//    
-//    id value = [self.minuteComponent valueWithScanner:scanner];
-//    NSLog(@"Value: %@ (%@ %@)", value, @(self.minuteComponent.isWildcard), @(self.minuteComponent.numericValue));
+    BTCronExpression *expression = [[BTCronExpression alloc] initWithCronLine:line];
+    expression.baseDate = self.baseDate;
+    expression.timezone = self.timezone;
 
-//    NSInteger minute, hour, dayOfMonth, month, dayOfWeek;
-//    [scanner scanInteger:&minute];
-//    [scanner scanInteger:&hour];
-//    [scanner scanInteger:&dayOfMonth];
-//    [scanner scanInteger:&month];
-//    [scanner scanInteger:&dayOfWeek];
-    
-//    NSString *remainder = [[[scanner string] substringFromIndex:[scanner scanLocation]] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-//    NSLog(@"Remainder: '%@'", remainder);
-//    
-//    NSCalendar *calendar = [[NSCalendar alloc] init];
-//    return [calendar dateFromComponents:components];
-
-    return nil;
+    return [expression nextDate];
 }
-
-//- (BTCronMinuteComponent *)minuteComponent
-//{
-//    if(_minuteComponent == nil)
-//        _minuteComponent = [[BTCronMinuteComponent alloc] init];
-//    return _minuteComponent;
-//}
 
 @end

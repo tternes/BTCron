@@ -10,6 +10,9 @@
 
 @interface BTCronParser : NSObject
 
+@property (nonatomic, strong) NSDate *baseDate;
+@property (nonatomic, strong) NSTimeZone *timezone;
+
 - (NSDate *)nextDateForLine:(NSString *)line;
 
 @end
