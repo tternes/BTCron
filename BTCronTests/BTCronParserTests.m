@@ -6,7 +6,6 @@
 //  Copyright (c) 2015 Bluetoo Ventures. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
 #import <XCTest/XCTest.h>
 #import "BTCronParser.h"
 #import "XCTestCase+CronTestBaseDates.h"

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DF24F0DB1B119E4A00DD7193 /* BTCronY2KTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DF24F0DA1B119E4A00DD7193 /* BTCronY2KTests.m */; };
 		DF74A49D1AFEB87D0042F87C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DF74A49C1AFEB87D0042F87C /* AppDelegate.m */; };
 		DF74A49F1AFEB87D0042F87C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DF74A49E1AFEB87D0042F87C /* main.m */; };
 		DF74A4A11AFEB87D0042F87C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF74A4A01AFEB87D0042F87C /* Images.xcassets */; };
@@ -31,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DF24F0DA1B119E4A00DD7193 /* BTCronY2KTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTCronY2KTests.m; sourceTree = "<group>"; };
 		DF74A4961AFEB87D0042F87C /* BTCron.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BTCron.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF74A49A1AFEB87D0042F87C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF74A49B1AFEB87D0042F87C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				DF7C774C1B1171FB0067FB96 /* BTCronExpressionTests.m */,
 				DF7C77511B11862D0067FB96 /* BTCronParserTests.m */,
 				DF74A4C81AFF01A70042F87C /* BTCronTimeComponentTests.m */,
+				DF24F0DA1B119E4A00DD7193 /* BTCronY2KTests.m */,
 				DF74A4AD1AFEB87D0042F87C /* Supporting Files */,
 			);
 			path = BTCronTests;
@@ -266,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF7C77481B116B4D0067FB96 /* BTCronTimeComponentTests.m in Sources */,
+				DF24F0DB1B119E4A00DD7193 /* BTCronY2KTests.m in Sources */,
 				DF7C774D1B1171FB0067FB96 /* BTCronExpressionTests.m in Sources */,
 				DF7C77521B11862D0067FB96 /* BTCronParserTests.m in Sources */,
 				DF7C77501B11848F0067FB96 /* XCTestCase+CronTestBaseDates.m in Sources */,
